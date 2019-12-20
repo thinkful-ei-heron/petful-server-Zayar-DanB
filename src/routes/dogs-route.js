@@ -7,12 +7,11 @@ dogsRoute
   .get((req, res) => {
     DogsService.makeQue()
     const list = DogsService.getAllDogs()
-    console.log(list)
     return res.send(list)
   })
   .post((req, res) => {
-    DogsService.deleteDog()
-    return res.send(200)
+    const item = DogsService.deleteDog()
+    return res.send(item)
   })
 
 
