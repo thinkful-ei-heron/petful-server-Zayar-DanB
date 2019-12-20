@@ -1,9 +1,19 @@
+const {CLIENT_ORIGIN, NODE_ENV} = require('./config')
 const express = require('express');
+const apiRoute = require('./routes');
 const cors = require('cors');
-
 const app = express();
-app.use(cors());
 
+app.use(cors({
+  origin: CLIENT_ORIGIN
+}));
+
+app.use('/api', apiRoute)
+app
+  .route('/')
+  .get((req, res) => {
+    return res.send(200)
+  })
 // Catch-all 404
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
@@ -24,3 +34,5 @@ app.use(function (err, req, res, next) {
 app.listen(8080,()=>{
   console.log('Serving on 8080');
 });
+
+module.exports = app
