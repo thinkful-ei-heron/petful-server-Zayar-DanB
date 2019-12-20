@@ -5,14 +5,14 @@ const DogsService = require('../services/dogs-service')
 dogsRoute
   .route('/')
   .get((req, res) => {
+    DogsService.makeQue()
     const list = DogsService.getAllDogs()
     console.log(list)
-    return res.status(200).send(list)
+    return res.send(list)
   })
-dogsRoute
-  .route('/:id')
-  .delete((req, res) => {
-    const id = req.parms.id
+  .post((req, res) => {
+    DogsService.deleteDog()
+    return res.send(200)
   })
 
 

@@ -15,11 +15,15 @@ describe('App', () => {
       })
       it('GET /dogs responds with an array of dogs', () => {
         return supertest(app)
-          .get('api/dogs')
+          .get('/api/dogs')
           .then(result => {
-            console.log(result)
             expect(result.body).to.be.an('array')
           })
+      })
+      it('POST /dogs responds with 200', () => {
+        return supertest(app)
+          .post('/api/dogs')
+          .expect(200)
       })
 
     })
@@ -31,7 +35,7 @@ describe('App', () => {
       })
       it('GET /cats responds with an array of cats', () => {
         return supertest(app)
-          .get('api/cats')
+          .get('/api/cats')
           .then(result => {
             expect(result.body).to.be.an('array')
           })
