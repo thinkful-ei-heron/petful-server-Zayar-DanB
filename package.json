@@ -10,6 +10,9 @@
     "test": "mocha --require test/setup.js --watch",
     "start": "nodemon src/server.js"
   },
+  "engines": {
+    "node": "10.16.3"
+  },
   "dependencies": {
     "chai": "^4.2.0",
     "cors": "^2.8.5",
