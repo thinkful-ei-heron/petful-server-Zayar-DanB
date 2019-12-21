@@ -1,4 +1,4 @@
-const {CLIENT_ORIGIN, NODE_ENV} = require('./config')
+const {CLIENT_ORIGIN, NODE_ENV, PORT} = require('./config')
 const express = require('express');
 const apiRoute = require('./routes');
 const cors = require('cors');
@@ -31,7 +31,7 @@ app.use(function (err, req, res, next) {
   });
 });
 
-app.listen(8080,()=>{
+app.listen(PORT,()=>{
   console.log('Serving on 8080');
 });
 
